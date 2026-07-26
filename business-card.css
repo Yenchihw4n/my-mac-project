@@ -70,5 +70,62 @@ body {
     font-weight: bold;
     font-size: 0.95rem;
     cursor: pointer;
-    
+     transition: all 0.2s;
+}
+.btn-primary{
+    background-color: #d4af37;
+    color: #000000;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #f9e8a2;
+}
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.hero-section2{
+    width: 45%;
+    height: 380px;
+     border: 2px dashed rgba(214, 175, 55, 0.3);
+     background: rgba(255, 255, 255, 0.01);
+     border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(214, 175, 55, 0.6);
+    font-size: 0.9rem;
+}
+.features-container {
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.feature-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+.feature-item h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+.feature-item p {
+    font-size: 0.85rem;
+    color: #a0aec0;
+    line-height: 1.6;
 }
