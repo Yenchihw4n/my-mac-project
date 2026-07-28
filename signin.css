@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+body {
+    background-color: #000000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 模擬背景的彩色流光效果 */
+.background-aurora {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    left: 10%;
+    top: 20%;
+    background: radial-gradient(circle, rgba(0,242,254,0.15) 0%, rgba(79,79,229,0.15) 50%, transparent 100%);
+    filter: blur(80px);
+    z-index: 1;
+}
+
+/* 彈窗主面板 */
+.modal-container {
+    background-color: rgba(26, 26, 26, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    width: 440px;
+    border-radius: 24px;
+    padding: 32px;
+    color: #ffffff;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* 關閉按鈕 */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+.close-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 頁籤切換 */
+.tab-container {
+    display: inline-flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 4px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tab-btn a{
+    color: #888;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.tab-btn.active {
+    font-weight: 500;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+/* 標題 */
+h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+/* 表單與輸入框 */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+}
+.form-row input {
+    flex: 1;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    transition: 0.2s;
+}
+input:focus {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.06);
+}
+input::placeholder {
+    color: #555555;
+}
+
+/* 附帶圖標的輸入框組合 */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-icon {
+    position: absolute;
+    left: 16px;
+    color: #555555;
+    font-size: 16px;
+}
+.input-group .input-icon + input {
+    padding-left: 44px;
+}
+
+/* 電話號碼專用樣式 */
+.phone-group .country-code {
+    position: absolute;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #555555;
+    font-size: 14px;
+    cursor: pointer;
+}
+.arrow-icon {
+    font-size: 10px;
+}
+.phone-group input {
+    padding-left: 68px;
+}
+
+/* 提交按鈕 */
+.submit-btn {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.submit-btn:hover {
+    background-color: #e6e6e6;
+}
+
+/* 分隔線 */
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
+    z-index: 1;
+}
+.divider span {
+    position: relative;
+    z-index: 2;
+    background-color: #1a1a1a;
+    padding: 0 12px;
+    color: #444444;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* 第三方登入按鈕 */
+.social-login {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0px;
+}
+
+/* 底部法律條款 */
+.terms-text {
+    font-size: 11px;
+    color: #555555;
+    text-align: center;
+    line-height: 1.5;
+}
+.terms-text a {
+    color: #888888;
+    text-decoration: none;
+}
+.terms-text a:hover {
+    text-decoration: underline;
+}
+/* 按鈕核心 CSS */
+.apple-signin-btn {
+  /* 尺寸與佈局 */
+  color: white;
+  font-size: 30px;
+  width: 280px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* 圓角與外觀 */
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  /* 墨玻璃效果核心：半透明背景與邊框 */
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  
+  /* 陰影效果：上方微亮內陰影，外圍極淡陰影 */
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    0 4px 24px rgba(0, 0, 0, 0.2);
+    
+  /* 後方背景模糊（可選，強化玻璃質感） */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 滑鼠懸停效果 */
+.apple-signin-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 點擊效果 */
+.apple-signin-btn:active {
+  transform: scale(0.98);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* 圖標微調 */
+.apple-icon {
+  opacity: 0.9;
+}
+.google-signin-btn {
+  /* 尺寸與佈局 */
+  color: white;
+  width: 280px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* 圓角與外觀 */
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  /* 墨玻璃效果核心：半透明背景與邊框 */
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  
+  /* 陰影效果：上方微亮內陰影，外圍極淡陰影 */
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    0 4px 24px rgba(0, 0, 0, 0.2);
+    
+  /* 後方背景模糊（可選，強化玻璃質感） */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.google-signin-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 點擊效果 */
+.google-signin-btn:active {
+  transform: scale(0.98);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* 圖標微調 */
+.google-icon {
+  opacity: 0.9;
+}

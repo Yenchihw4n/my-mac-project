@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>login</title>
+    <link rel="stylesheet" href="signin.css">
+</head>
+
+<body>
+    <div class="background-aurora"></div>
+    <div class="modal-container">
+        <button class="close-btn">&times;</button>
+        <div class="tab-container">
+            <button class="tab-btn active">sign in</button>
+            <button class="tab-btn "><a href="signup.html">sign up</a></button>
+        </div>
+        <h2>create an account</h2>
+        <form class="signup-form">
+            <div class="input-group">
+                <i class="fa-regular fa-envelope input-icon"></i>
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group phone-group">
+                <div class="country-code">
+                    <span class="flag">🇹🇼</span>
+                    <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                </div>
+                <input type="tel" placeholder="(886) 123-4567" required>
+            </div>
+            <button type="submit" class="submit-btn" id="signin-btn">Sign In</button>
+        </form>
+        <div class="divider">
+            <span>OR SIGN IN WITH</span>
+        </div>
+        <div class="social-login">
+            <button class="google-signin-btn">
+                <svg xmlns="http://w3.org" viewBox="0 0 48 48" width="30px" height="30px">
+                    <path fill="#EA4335"
+                        d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                    <path fill="#4285F4"
+                        d="M46.5 24c0-1.63-.15-3.22-.42-4.75H24v9h12.75c-.55 2.95-2.22 5.46-4.73 7.14l7.35 5.7C43.68 36.8 46.5 31.03 46.5 24z" />
+                    <path fill="#34A853"
+                        d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.35-5.7c-2.21 1.48-5.04 2.36-8.54 2.36-6.26 0-11.57-4.22-13.46-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                    <path fill="#FBBC05"
+                        d="M10.54 28.94c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.98-6.14z" />
+                </svg>
+
+            </button>
+            <button class="apple-signin-btn">
+                
+            </button>
+        </div>
+        <p class="terms-text">By creating an account, you agree to our <a href="#">Terms & Service</a></p>
+    </div>
+    <script>
+    document.getElementById('signin-btn').addEventListener('click', function(e) {
+        e.preventDefault(); // 阻止表單預設重新整理行為
+        // 這裡未來可以寫驗證帳密的邏輯
+        window.location.href = "userbackend.html"; // 成功後跳轉到後台
+    });
+    </script>
+</body>
+
+</html>

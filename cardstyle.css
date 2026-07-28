@@ -1,0 +1,518 @@
+/* ==========================================================================
+   1. 全域重設與基礎樣式 (Reset & Base)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #334155;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. 後台兩欄主佈局 (Sidebar & Main Layout)
+   ========================================================================== */
+/* 側邊導覽欄 */
+aside {
+    width: 260px;
+    background-color: #0f172a;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    flex-shrink: 0;
+}
+
+.logo-area {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+}
+
+.logo-area span {
+    color: #818cf8;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+nav a {
+    display: block;
+    padding: 12px 16px;
+    color: #94a3b8;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+nav a.active {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+nav a:hover:not(.active) {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+/* 使用者個人資訊區區塊 */
+.user-profile {
+    border-top: 1px solid #1e293b;
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #6366f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.user-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-info p {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* 主要內容顯示區 */
+main {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+header h1 {
+    font-size: 28px;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+header p {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* ==========================================================================
+   3. 通用元件與表單 (UI Components & Forms)
+   ========================================================================== */
+/* 按鈕樣式組合 */
+.btn-group {
+    display: flex;
+    gap: 12px;
+}
+
+button, .btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-outline {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+}
+
+.btn-outline:hover {
+    background-color: #f8fafc;
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+}
+
+.btn-dark {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.btn-dark:hover {
+    background-color: #0f172a;
+}
+
+/* 數據卡片區 */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.status-badge {
+    background-color: #dcfce7;
+    color: #15803d;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* 內頁區塊面板 */
+.workspace {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.card-panel {
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.panel-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* 基本表單樣式 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    transition: all 0.2s;
+}
+
+input:focus, textarea:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.avatar-edit-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.big-avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #94a3b8;
+}
+
+.avatar-hint {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 6px;
+}
+
+/* ==========================================================================
+   4. 🚗 汽車級客製化選配控制面板 (Style Selector)
+   ========================================================================== */
+.style-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.style-option {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.style-option:hover {
+    border-color: #cbd5e1;
+}
+
+.style-option.active {
+    border-color: #4f46e5;
+    background-color: #f5f3ff;
+}
+
+/* 選配面板的微縮色彩預覽圖 */
+.color-preview {
+    width: 100%;
+    height: 44px;
+    border-radius: 6px;
+}
+
+.business-color { background: linear-gradient(135deg, #1e1b4b, #020617); }
+.creative-color { background: linear-gradient(135deg, #fdf2f8, #fce7f3); border: 1px solid #f43f5e; }
+.luxury-color { background: #111111; border: 1px solid #d4af37; }
+
+.style-option span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+/* ==========================================================================
+   5. 手機端模擬外框 (Phone Shell Emulator)
+   ========================================================================== */
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone-shell {
+    width: 280px;
+    height: 540px;
+    border: 10px solid #1e293b;
+    border-radius: 36px;
+    background-color: #0f172a;
+    padding: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 16px;
+    background-color: #1e293b;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* 平滑無縫變更車色/外觀 */
+}
+
+/* 手機內名片核心欄位基礎設定 */
+.inner-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 16px;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+.inner-name { 
+    font-size: 16px; 
+    font-weight: 700; 
+    margin-bottom: 4px; 
+}
+
+.inner-title { 
+    font-size: 12px; 
+    margin-bottom: 16px; 
+}
+
+.inner-bio { 
+    font-size: 11px; 
+    text-align: center; 
+    margin-bottom: 24px; 
+    line-height: 1.5; 
+}
+
+.phone-links { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.phone-link-btn { 
+    padding: 10px; 
+    text-align: center; 
+    font-size: 12px; 
+    font-weight: 500; 
+    transition: all 0.2s ease; 
+}
+
+/* ==========================================================================
+   6. 🚗 三種選配樣式風格定義 (Theme Collections)
+   ========================================================================== */
+
+/* --------------------------------------------------
+   風格 A：💼 專業商務風 (Theme Business)
+   -------------------------------------------------- */
+.theme-business {
+    background: linear-gradient(135deg, #1e1b4b 0%, #020617 100%);
+    color: #ffffff;
+}
+.theme-business .inner-avatar { 
+    background-color: #6366f1; 
+    border: 2px solid #818cf8; 
+    color: #ffffff; 
+}
+.theme-business .inner-title { color: #a5b4fc; }
+.theme-business .inner-bio { color: #94a3b8; }
+.theme-business .phone-link-btn {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-radius: 10px; /* 方中帶圓俐落質感 */
+}
+.theme-business .phone-link-btn:hover { 
+    background-color: rgba(255, 255, 255, 0.15); 
+}
+
+/* --------------------------------------------------
+   風格 B：🎨 潮流設計風 (Theme Creative)
+   -------------------------------------------------- */
+.theme-creative {
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+    color: #1e293b;
+}
+.theme-creative .inner-avatar { 
+    background-color: #ec4899; 
+    color: #ffffff; 
+    border: none; 
+}
+.theme-creative .inner-title { 
+    color: #db2777; 
+    font-weight: 600; 
+}
+.theme-creative .inner-bio { color: #64748b; }
+.theme-creative .phone-link-btn {
+    background: #ec4899;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px; /* 潮流活潑超圓角膠囊狀 */
+    box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.2);
+}
+.theme-creative .phone-link-btn:hover { 
+    background: #db2777; 
+    transform: translateY(-1px); 
+}
+.theme-luxury{
+    background-color: #111111;
+    color: #f1f5f9;
+    border: 1px solid #d4af37;
+}
+.theme-luxury .inner-avatar {
+    background-color: #222222;border: 1px solid #d4af37;color: #d4af37;
+}
+.theme-luxury .inner-title {
+    color: #d4af37;font-family: "Georgia", serif;font-style: italic;
+}
+.theme-luxury .inner-bio {
+    color: #94a3b8;font-family: "Georgia", serif;
+}
+.theme-luxury .phone-link-btn {
+    background-color: transparent;border: 1px solid #d4af37;
+    color: #d4af37;border-radius: 0px;letter-spacing: 1px;
+}
+.theme-luxury .phone-link-btn:hover {
+    background-color: #d4af37;color: #111111;
+}
